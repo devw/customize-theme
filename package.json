@@ -1,12 +1,18 @@
 {
-  "name": "customize-theme",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Antonio Pierro <antonio.pierro@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "next": "^9.5.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  }
+    "name": "customize-theme",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Antonio Pierro <antonio.pierro@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "next",
+        "build": "next build",
+        "start": "NODE_ENV=production node server.js"
+    },
+    "dependencies": {
+        "next": "^9.5.5",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    }
 }
