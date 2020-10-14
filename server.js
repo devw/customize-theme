@@ -5,6 +5,7 @@ const next = require("next");
 const { default: createShopifyAuth } = require("@shopify/koa-shopify-auth");
 const { verifyRequest } = require("@shopify/koa-shopify-auth");
 const session = require("koa-session");
+const { hasDb } = require("./src/services/aws.service.js");
 
 dotenv.config();
 
@@ -23,9 +24,10 @@ app.prepare().then(() => {
         createShopifyAuth({
             apiKey: SHOPIFY_API_KEY,
             secret: SHOPIFY_API_SECRET_KEY,
-            scopes: ["read_products"],
+            scopes: ["read_products"], // it should write/read scriptTag
             afterAuth(ctx) {
                 const { shop, accessToken } = ctx.session;
+                hasDb(shop, accessToken);
                 ctx.redirect("/");
             },
         })
