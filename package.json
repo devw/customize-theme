@@ -5,14 +5,24 @@
     "author": "Antonio Pierro <antonio.pierro@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "next",
+        "test": "jest",
+        "dev": "node server.js",
         "build": "next build",
         "start": "NODE_ENV=production node server.js"
     },
     "dependencies": {
+        "@shopify/koa-shopify-auth": "^3.1.70",
+        "dotenv": "^8.2.0",
+        "isomorphic-fetch": "^3.0.0",
+        "koa": "^2.13.0",
+        "koa-session": "^6.1.0",
         "next": "^9.5.5",
+        "node-fetch": "^2.6.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "aws-sdk": "^2.771.0",
+        "jest": "^26.5.3"
     }
 }
