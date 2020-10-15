@@ -6,6 +6,15 @@ const getThemes = async () => {
     return await response.json();
 };
 
+const registerShop = async (body) => {
+    const response = await fetch(`${API_GATEWAY}/shops`, {
+        method: "post",
+        body: JSON.stringify(body),
+    });
+    return await response.json();
+};
+
 module.exports = {
     getThemes: getThemes,
+    registerShop: registerShop,
 };
