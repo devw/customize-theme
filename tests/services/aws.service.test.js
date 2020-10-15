@@ -1,7 +1,9 @@
-const { hasShop } = require("../../src/services/aws.service.js");
+const { getThemes } = require("../../src/services/aws.service.js");
 
-describe("Signing with Storefront API and valid information", () => {
-    test("It should connect to AWS dynamo", async () => {
-        expect(hasShop()).toBeUndefined();
+describe("Using Amazon API Gateway", () => {
+    test("It should get themes from DynamoDB", async () => {
+        const { statusCode, body } = await getThemes();
+        console.log(body);
+        expect(statusCode).toBe(200);
     });
 });
