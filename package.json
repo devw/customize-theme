@@ -19,10 +19,12 @@
         "next": "^9.5.5",
         "node-fetch": "^2.6.1",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "webpack": "^5.1.2"
     },
     "devDependencies": {
         "aws-sdk": "^2.771.0",
-        "jest": "^26.5.3"
+        "jest": "^26.5.3",
+        "webpack-cli": "^4.0.0"
     }
 }
