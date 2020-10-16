@@ -9,16 +9,13 @@ exports.handler = async (event, context, callback) => {
         callback(null, {
             statusCode: 201,
             body: { id: requestId, ...event },
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-            },
         }).catch((err) => console.error(err));
     });
 };
 
 const registerShop = (requestId, event) => {
     const params = {
-        TableName: "shops",
+        TableName: process.env.TableName,
         Item: { id: requestId, ...event },
     };
     return ddb.put(params).promise();
