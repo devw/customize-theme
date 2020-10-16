@@ -14,6 +14,7 @@
         "@shopify/koa-shopify-auth": "^3.1.70",
         "dotenv": "^8.2.0",
         "isomorphic-fetch": "^3.0.0",
+        "js-yaml": "^3.14.0",
         "koa": "^2.13.0",
         "koa-session": "^6.1.0",
         "next": "^9.5.5",

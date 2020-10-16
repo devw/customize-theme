@@ -1,4 +1,5 @@
 const API = require("../../src/services/aws.service.js");
+const yaml = require("js-yaml");
 const fs = require("fs");
 
 describe("Using Amazon API Gateway", () => {
@@ -7,13 +8,8 @@ describe("Using Amazon API Gateway", () => {
         console.log(body);
         expect(statusCode).toBe(200);
     });
-    test("It should create a new entry in shop table into DynamoDB", async () => {
-        const body = {
-            shop: "https://paso2000.myshopify.com/",
-            access_token: "access_token_asdasdasdsa",
-            storefront_token: "storefront_token_asdlasdhkusahdksah",
-            theme_id: 1,
-        };
+    test("It should write/update shop data into DynamoDB", async () => {
+        const body = yaml.load(fs.readFileSync("./tests/fixtures/shop.yml"));
         const { statusCode } = await API.registerShop(body);
         expect(statusCode).toBe(201);
     });
