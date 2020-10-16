@@ -8,7 +8,15 @@ const getThemes = async () => {
 
 const registerShop = async (body) => {
     const response = await fetch(`${API_GATEWAY}/shops`, {
-        method: "post",
+        method: "POST",
+        body: JSON.stringify(body),
+    });
+    return await response.json();
+};
+
+const uploadTheme = async (body) => {
+    const response = await fetch(`${API_GATEWAY}/upload-on-s3`, {
+        method: "POST",
         body: JSON.stringify(body),
     });
     return await response.json();
@@ -17,4 +25,5 @@ const registerShop = async (body) => {
 module.exports = {
     getThemes: getThemes,
     registerShop: registerShop,
+    uploadTheme: uploadTheme,
 };
