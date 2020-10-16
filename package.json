@@ -8,7 +8,7 @@
         "test": "jest",
         "dev": "node server.js",
         "build": "next build",
-        "bs": "webpack",
+        "build-script": "rm -rf docs; webpack; mv dist docs;",
         "start": "NODE_ENV=production node server.js"
     },
     "dependencies": {
