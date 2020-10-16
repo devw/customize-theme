@@ -8,6 +8,7 @@
         "test": "jest",
         "dev": "node server.js",
         "build": "next build",
+        "build-scriptTag": "webpack",
         "start": "NODE_ENV=production node server.js"
     },
     "dependencies": {
