@@ -1,5 +1,8 @@
 const fetch = require("node-fetch");
-const { API_GATEWAY } = require("../config");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { API_GATEWAY } = process.env;
 
 const getThemes = async () => {
     const response = await fetch(`${API_GATEWAY}/themes`);
