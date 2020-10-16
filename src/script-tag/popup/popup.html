@@ -1,6 +1,17 @@
 <div class="popup">
     <div class="container">
         <div class="close">+</div>
-        <div class="content"></div>
+        <div class="content">
+            <div class="themes">
+                <span>Choose a theme</span>
+            </div>
+            <div class="upload">
+                <form onsubmit="return false;" method="post" name="theme-to-upload" enctype="multipart/form-data">
+                    Select a theme to upload:
+                    <input type="file" id="fileToUpload">
+                    <input type="submit" id="up-s3" value="Upload" >
+                  </form>
+            </div>
+        </div>
     </div>
 </div>
