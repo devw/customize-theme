@@ -19,8 +19,8 @@ describe("Using Amazon API Gateway", () => {
             fileContent: fs.readFileSync(`${file}`, "utf-8"),
             fileName: file.match(/[^/]*$/)[0],
         };
-        const { ETag } = await API.uploadTheme(body);
-        console.log(ETag);
-        expect(ETag).toBeDefined();
+        const result = await API.uploadTheme(body);
+        console.log(result);
+        expect(result.ETag).toBeDefined();
     });
 });
