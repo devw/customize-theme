@@ -2,24 +2,23 @@
 const AWS = require("aws-sdk");
 const ddb = new AWS.DynamoDB.DocumentClient({ region: "eu-west-3" });
 
-exports.handler = async (event, context, callback) => {
-    const requestId = context.awsRequestId;
-
-    await registerShop(requestId, event).then(() => {
-        callback(null, {
-            statusCode: 201,
-            body: { id: requestId, ...event },
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-            },
-        }).catch((err) => console.error(err));
-    });
+exports.handler = async (_, context, callback) => {
+    await getThemes()
+        .then((data) => {
+            data.Items.forEach((item) => console.log(item));
+            callback(null, {
+                statusCode: 200,
+                body: data.Items,
+            });
+        })
+        .catch((err) => console.log(err));
 };
 
-const registerShop = (requestId, event) => {
+const getThemes = () => {
     const params = {
-        TableName: "shops",
-        Item: { id: requestId, ...event },
+        TableName: process.env.TableName,
+        Limit: 10,
     };
-    return ddb.put(params).promise();
+
+    return ddb.scan(params).promise();
 };
